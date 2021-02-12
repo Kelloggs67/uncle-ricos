@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'store/main.html' %} {% load static %} {% block body_block %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li
+      data-target="#carouselExampleIndicators"
+      data-slide-to="0"
+      class="active"
+    ></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="7000">
+      <img
+        class="d-block w-100"
+        src="{% static 'images/wax.jpg' %}"
+        alt="First slide"
+      />
+    </div>
+    <div class="carousel-item" data-interval="7000">
+      <img
+        class="d-block w-100"
+        src="{% static 'images/hero.jpg' %}"
+        alt="Second slide"
+      />
+    </div>
+    <div class="carousel-item" data-interval="7000">
+      <img
+        class="d-block w-100"
+        src="{% static 'images/mad.jpg' %}"
+        alt="Third slide"
+      />
+    </div>
+  </div>
+</div>
+
+{% endblock body_block %}
