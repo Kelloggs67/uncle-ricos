@@ -45,7 +45,7 @@ nav {
   top: 7px;
   color: rgb(0, 0, 0);
   font-size: 14px;
-  cursor:default;
+  cursor: default;
 }
 
 .water-temp-icon {
@@ -139,6 +139,19 @@ nav {
   top: 8px;
 }
 
+.cancel{
+  display: none;
+  cursor: pointer;
+}
+
+.cancel img{
+  height: 20px;
+  width: auto;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
 .cart img {
   height: auto;
   width: 34px;
@@ -209,6 +222,14 @@ footer {
     cursor: pointer;
   }
 
+  .cancel-display {
+    display: block;
+  }
+
+  .burger-clicked{
+    display: none;
+  }
+
   .carousel {
     position: relative;
     top: 47px;
@@ -229,23 +250,47 @@ footer {
   from {
     opacity: 0;
     transform: translateX(50px);
+    font-size: 12px;
   }
   to {
     opacity: 1;
     transform: translateX(0px);
+    font-size: 20px;
   }
 }
 
 @keyframes shake {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(-2.5deg); }
-  20% { transform: rotate(2.5deg); }
-  30% { transform: rotate(0deg); }
-  40% { transform: rotate(2.5deg); }
-  50% { transform: rotate(-2.5deg); }
-  60% { transform: rotate(0deg); }
-  70% { transform: rotate(-2.5deg); }
-  80% { transform: rotate(2.5deg); }
-  90% { transform: rotate(0deg); }
-  100% { transform: rotate(-2.5deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-2.5deg);
+  }
+  20% {
+    transform: rotate(2.5deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(2.5deg);
+  }
+  50% {
+    transform: rotate(-2.5deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-2.5deg);
+  }
+  80% {
+    transform: rotate(2.5deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-2.5deg);
+  }
 }

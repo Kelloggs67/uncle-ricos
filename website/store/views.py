@@ -25,11 +25,17 @@ def scroll(request):
     #GET CURRENT TIME
     now = datetime.now()
     current_time = int(now.strftime("%H"))
-    print("Current Time =", current_time)
+    current_minute = int(now.strftime("%M"))
+    print("Current Time =", current_time, current_minute)
+
+    if current_minute > 40 and current_time != 23:
+        current_time += 1
+
+    print(current_time)
 
     #GET SUNRISE AND SUNSET INFO
     sunset_full_time = marine_response['data']['weather'][0]['astronomy'][0]['sunset']
-    sunrise_full_time = marine_response['data']['weather'][0]['astronomy'][0]['sunset']
+    sunrise_full_time = marine_response['data']['weather'][0]['astronomy'][0]['sunrise']
     sunrise_code = int(sunrise_full_time[:2])
     sunset_code = int(sunset_full_time[:2])
 
@@ -43,6 +49,8 @@ def scroll(request):
         day = 'day'
     else:
         day = 'night'
+
+    print(sunset_code, sunrise_code)
 
     
 
