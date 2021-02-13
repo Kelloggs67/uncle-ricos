@@ -28,7 +28,7 @@ def scroll(request):
     current_minute = int(now.strftime("%M"))
     print("Current Time =", current_time, current_minute)
 
-    if current_minute > 40 and current_time != 23:
+    if current_minute >= 45 and current_time != 23:
         current_time += 1
 
     print(current_time)
@@ -52,16 +52,12 @@ def scroll(request):
 
     print(sunset_code, sunrise_code)
 
-    
 
     #GET SPECIFIC DATA
     forecast = marine_response['data']['weather'][0]['hourly'][current_time]
     temp_f = str(round(weather_response['main']['temp']))
     water_temp_f = forecast['waterTemp_F']
     icon = 'images/world-weather-online-set/PNGs_128x128/'+ day + '/' + forecast['weatherCode']
-
-    print(forecast['weatherCode'])
-
 
 
     #CONTEXT
