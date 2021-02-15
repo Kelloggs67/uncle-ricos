@@ -3,16 +3,18 @@ from django.http import HttpResponse
 import requests
 from ipstack import GeoLookup
 from datetime import datetime
-
 # Create your views here.
 
-def scroll(request):
+def main():
 
     #GET LOCATION
     geo_lookup = GeoLookup("3f6e3ea0f53c0a3eeb2ebd578f3d74f3")
     location = geo_lookup.get_own_location()
     lon = location['longitude']
     lat = location['latitude']
+    city = location['city']
+
+    print(city)
 
     #GET CURRENT WEATHER
     url = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&units=imperial&appid=7acfccf49d5888267f2a1348496ac9a2'
@@ -67,7 +69,31 @@ def scroll(request):
         "icon": icon,
     }
 
-    context = {'marine_weather': marine_weather}
+    context = ('marine_weather', marine_weather)
 
+
+    return context
+
+def scroll(request):
+
+    nav = main()
+    context = {nav[0]: nav[1]}
 
     return render(request, 'store/scroll.html', context)
+
+
+
+def cart(request):
+
+    nav = main()
+    context = {nav[0]: nav[1]}
+
+    return render(request, 'store/cart.html', context)
+
+
+def checkout(request):
+
+    nav = main()
+    context = {nav[0]: nav[1]}
+
+    return render(request, 'store/checkout.html', context)

@@ -26,7 +26,7 @@
   <body>
     <nav>
       <div class="logo">
-        <a href=""
+        <a href="{% url 'scroll' %}"
           ><img src="{% static 'images/brand.png' %}" alt="Uncle Rico's"
         /></a>
       </div>
@@ -36,44 +36,39 @@
         <li><a class="underline" href="">Apparel</a></li>
         <li><a class="underline" href="">Accessories</a></li>
         <li><a class="underline" href="">Bundles</a></li>
+        <li><a class="underline" href="">About</a></li>
       </ul>
 
       <div class="right-nav">
-        <div class="water-temp-icon">
-          <div class="water-icon">
-            <img src="{% static 'images/water-temp.png' %}" alt="" />
-          </div>
-          <div class="water-temp">
-            <p>{{ marine_weather.water }}</p>
-          </div>
+        <div class="water-icon">
+          <img src="{% static 'images/wave.png' %}" alt="" />
+        </div>
+        <div class="water-temp">
+          <p>{{ marine_weather.water }}</p>
         </div>
 
-        <div class="temp-icon">
-          <div class="icon">
-            <img src="../static/{{ marine_weather.icon }}.png" alt="" />
-          </div>
-          <div class="temp">
-            <p>{{marine_weather.temp}}</p>
-          </div>
+        <div class="icon">
+          <img src="../static/{{ marine_weather.icon }}.png" alt="" />
+        </div>
+        <div class="temp">
+          <p>{{marine_weather.temp}}</p>
         </div>
 
         <div class="cart">
-          <a href=""
+          <a href="{% url 'cart' %}"
             ><img class="hover-ani" src="{% static 'images/car.png' %}" alt=""
           /></a>
         </div>
-      </div>
 
-      <div class="burger">
-        <img src="{% static 'images/waveburger.png' %}" alt="" />
+        <div class="burger">
+          <img src="{% static 'images/waveburger.png' %}" alt="" />
+        </div>
+
+        <div class="cancel">
+          <img src="{% static 'images/x.png' %}" alt="" />
+        </div>
       </div>
-      <div class="cancel">
-        <img src="{% static 'images/x.png' %}" alt="">
-      </div>
-      
     </nav>
-
-    {% block body_block %} {% endblock body_block %}
 
     <footer>
       <div>
@@ -111,5 +106,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="{% static 'js/app.js' %}"></script>
+
+    {% block body_block %} {% endblock body_block %}
   </body>
 </html>
