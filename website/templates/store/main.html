@@ -23,25 +23,30 @@
       href="{% static 'images/favicon.png' %}"
     />
   </head>
+  <style>
+    footer {
+      background-image: url("{% static "images/store/footer.jpg" %}");
+    }
+  </style>
   <body>
     <nav>
       <div class="logo">
         <a href="{% url 'scroll' %}"
-          ><img src="{% static 'images/brand.png' %}" alt="Uncle Rico's"
+          ><img src="{% static 'images/navbar/brand.png' %}" alt="Uncle Rico's"
         /></a>
       </div>
 
       <ul class="nav-links">
-        <li><a class="underline" href="">Surf Wax</a></li>
-        <li><a class="underline" href="">Apparel</a></li>
-        <li><a class="underline" href="">Accessories</a></li>
-        <li><a class="underline" href="">Bundles</a></li>
-        <li><a class="underline" href="">About</a></li>
+        <li><a class="underline" href="\#the-wax">Surf Wax</a></li>
+        <li><a class="underline" href="\#apparel">Apparel</a></li>
+        <li><a class="underline" href="\#accessories">Accessories</a></li>
+        <li><a class="underline" href="\#bundles">Bundles</a></li>
+        <li><a class="underline" href="\#about">About</a></li>
       </ul>
 
       <div class="right-nav">
         <div class="water-icon">
-          <img src="{% static 'images/wave.png' %}" alt="" />
+          <img src="{% static 'images/navbar/wave.png' %}" alt="" />
         </div>
         <div class="water-temp">
           <p>{{ marine_weather.water }}</p>
@@ -56,42 +61,59 @@
 
         <div class="cart">
           <a href="{% url 'cart' %}"
-            ><img class="hover-ani" src="{% static 'images/car.png' %}" alt=""
+            ><img
+              class="hover-ani"
+              src="{% static 'images/navbar/car.png' %}"
+              alt=""
           /></a>
         </div>
 
         <div class="burger">
-          <img src="{% static 'images/waveburger.png' %}" alt="" />
+          <img src="{% static 'images/navbar/waveburger.png' %}" alt="" />
         </div>
 
         <div class="cancel">
-          <img src="{% static 'images/x.png' %}" alt="" />
+          <img src="{% static 'images/navbar/x.png' %}" alt="" />
         </div>
       </div>
     </nav>
 
+    {% block body_block %} {% endblock body_block %}
+
+    <div class="wrapper">
+      <div class="push"></div>
+    </div>
     <footer>
-      <div>
-        Icons made by
-        <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx"
-          >xnimrodx</a
-        >
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon"
-          >www.flaticon.com</a
-        >
-      </div>
-      <div>
-        Icons made by
-        <a
-          href="https://www.flaticon.com/authors/kiranshastry"
-          title="Kiranshastry"
-          >Kiranshastry</a
-        >
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon"
-          >www.flaticon.com</a
-        >
+      <div class="credits">
+        <div>
+          Icons made by
+          <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx"
+            >xnimrodx</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+        <div>
+          Icons made by
+          <a
+            href="https://www.flaticon.com/authors/kiranshastry"
+            title="Kiranshastry"
+            >Kiranshastry</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+
+        <div>
+          Icons made by <a href="" title="xnimrodx">xnimrodx</a> from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
       </div>
     </footer>
 
@@ -105,8 +127,7 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+    
     <script src="{% static 'js/app.js' %}"></script>
-
-    {% block body_block %} {% endblock body_block %}
   </body>
 </html>

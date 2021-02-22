@@ -4,23 +4,26 @@
   padding: 0px;
 }
 
+html,
 body {
   background-color: floralwhite;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 nav {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  min-height: 57px;
+  min-height: calc(41px + (57 - 41) * ((100vw - 500px) / (1920-500)));
   align-items: center;
   background: linear-gradient(
     90deg,
-    #fffaf0 36.17%,
-    rgba(255, 255, 255, 0) 79.2%
+    floralwhite 0%,
+    rgba(255, 255, 255, 0.151) 25%
   );
   /* background-color: white; */
-  font-family: "Poppins", sans-serif;
   position: fixed;
   z-index: 10;
   justify-content: center;
@@ -28,18 +31,18 @@ nav {
 
 .logo img {
   width: auto;
-  height: 45px;
+  height: calc(35px + (50 - 35) * ((100vw - 500px) / (2000-500)));
   margin: auto auto auto 5px;
-  background-color: gray;
+  /* background-color: blue; */
 }
 
 .nav-links {
   display: flex;
   justify-content: space-around;
-  margin: auto;
+  margin: 0 0 0 auto;
   align-items: center;
   width: 60%;
-  background-color: cyan;
+  /* background-color: green; */
 }
 
 .nav-links li {
@@ -51,14 +54,14 @@ nav {
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
-  font-size: 13px;
+  font-size: calc(10px + (13 - 10) * ((100vw - 500px) / (1920-500)));
 }
 
 .underline::after {
   content: "";
   display: block;
   width: 0;
-  height: 0.06rem;
+  height: 0.08rem;
   background: black;
   transition: width 0.3s;
 }
@@ -71,49 +74,56 @@ nav {
 .right-nav {
   display: flex;
   justify-content: space-around;
-  background-color: crimson;
   margin: auto 10px auto auto;
+  /* background-color: crimson; */
   align-items: center;
+  height: 30px;
+  width: auto;
 }
 
-.water-icon{
-  margin: auto 0;
-  padding: 5px;
-  background-color: yellow;
+.water-icon {
+  margin: 2px 0;
+  padding: 0 5px;
+  /* background-color: blue; */
 }
 
 .water-icon img {
-  width: 30px;
-  height: auto; 
+  width: calc(27px + (32 - 27) * ((100vw - 500px) / (1920-500)));
+  height: auto;
 }
 
-.water-temp p{
-  margin: auto 0;
+.water-temp p {
+  margin: 2px 0;
   color: rgb(0, 0, 0);
-  font-size: 15px;
+  font-size: calc(13px + (18 - 13) * ((100vw - 500px) / (1920-500)));
   cursor: default;
-  background-color: blueviolet;
+  /* background-color: gray; */
 }
 
 .icon img {
-  margin: auto 0;
-  width: 35px;
+  margin: 2px 0;
+  width: calc(30px + (35 - 30) * ((100vw - 500px) / (1920-500)));
   height: auto;
-  background-color: teal;
+  /* background-color: greenyellow; */
 }
 
-.temp p{
+.temp p {
   margin: auto 0;
   color: rgb(0, 0, 0);
-  font-size: 15px;
+  font-size: calc(13px + (18 - 13) * ((100vw - 500px) / (1920-500)));
   cursor: default;
-  background-color: white;
+  /* background-color: hotpink; */
+}
+
+.cart {
+  margin: 2px 10px 2px 10px;
+  /* background-color: indigo; */
 }
 
 .cart img {
   height: auto;
-  width: 38px;
-  background-color: burlywood;
+  width: calc(30px + (42 - 30) * ((100vw - 500px) / (1920-500)));
+  margin: 2px;
 }
 
 .hover-ani:hover {
@@ -123,6 +133,7 @@ nav {
 
 .burger {
   display: none;
+  /* background-color: yellow; */
 }
 
 .burger img {
@@ -138,40 +149,77 @@ nav {
 .cancel img {
   height: 20px;
   width: auto;
+  margin: 2px 7.5px 2px 0;
 }
 
 .carousel img {
   max-height: 100vh;
   object-fit: cover;
+  margin: auto;
+}
+
+.carousel-indicators li {
+  position: relative;
+  bottom: 1vw;
+}
+
+.entire-store {
+  background: linear-gradient(
+    180deg,
+    floralwhite 0%,
+    rgb(255, 239, 217) 15%,
+    rgb(253, 234, 239) 50%,
+    rgb(234, 250, 255) 90%,
+    rgba(183, 226, 242, 1) 100%
+  );
+}
+
+.store-sections {
+  width: 100%;
+  min-height: 100vh;
+  padding: 90px;
+}
+
+.sticky {
+  position: fixed;
+  z-index: -20;
+  top: 0px;
+  object-fit: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.see-through {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#c {
+  display: block;
+}
+
+#vertical {
+  display: none;
 }
 
 footer {
+  height: 100vh;
   position: relative;
+}
+
+.credits {
+  position: absolute;
   bottom: 0px;
-  display: none;
 }
 
 @media screen and (max-width: 1024px) {
   .nav-links {
     width: 100%;
   }
-
-  .nav-links a {
-    font-size: 12px;
-  }
 }
 
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
-  }
-
-  nav {
-    min-height: 47px;
-  }
-
-  .logo img {
-    height: 35px;
   }
 
   .nav-links {
@@ -181,8 +229,8 @@ footer {
     top: 41px;
     background: linear-gradient(
       270deg,
-      #fffaf0 36.17%,
-      rgba(255, 255, 255, 0) 79.2%
+      floralwhite 0%,
+      rgba(255, 255, 255, 0) 50.2%
     );
     display: flex;
     flex-direction: column;
@@ -197,8 +245,12 @@ footer {
     opacity: 0;
     position: relative;
     right: -10vw;
+    bottom: 20px;
   }
 
+  .nav-links a {
+    font-size: 12px;
+  }
 
   .burger {
     display: block;
@@ -214,8 +266,19 @@ footer {
   }
 
   .carousel {
-    position: relative;
-    top: 47px;
+    margin: 0 0 5vw 0;
+  }
+
+  .carousel img {
+    margin-top: 41px;
+  }
+
+  #c {
+    display: none;
+  }
+
+  #vertical {
+    display: block;
   }
 }
 
