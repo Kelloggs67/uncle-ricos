@@ -15,60 +15,111 @@
     <div class="carousel-item active" data-interval="7000">
       <img
         class="d-block w-100"
-        src="{% static 'images/carousel/wax.jpg' %}"
+        src="{% static 'images/wax.jpg' %}"
         alt="First slide"
       />
     </div>
     <div class="carousel-item" data-interval="7000">
       <img
         class="d-block w-100"
-        src="{% static 'images/carousel/hero.jpg' %}"
+        src="{% static 'images/hero.jpg' %}"
         alt="Second slide"
       />
     </div>
     <div class="carousel-item" data-interval="7000">
       <img
         class="d-block w-100"
-        src="{% static 'images/carousel/mad.jpg' %}"
+        src="{% static 'images/mad.jpg' %}"
         alt="Third slide"
       />
     </div>
   </div>
 </div>
 
-<div class="entire-store">
-  <section id="the-wax" class="store-sections">
-    <h2>THE WAX</h2>
-    <hr />
-  </section>
+<main>
+  <div class="entire-store">
+    <section id="the-wax" class="store-sections">
+      <h2>THE WAX</h2>
+      <hr />
+      <div class="row product-list">
+        {% for product in products %}
 
-  <section id="apparel" class="store-sections">
-    <h2>APPAREL</h2>
-    <hr />
-  </section>
-</div>
+        {% if product.category.name == 'The Wax' %}
 
-<img id='c' class='sticky' src="{% static 'images/store/A.jpg' %}" alt="">
-<img id='vertical' class="sticky" src="{% static 'images/store/vertical.jpg' %}" alt="" />
-<div class="store-sections see-through">
-  
-</div>
+        <div class="card border-light mb-3 col-md-6" style="max-width: 18rem;">
+          <div class="card-header">
+            <img src="{{ product.imageURL }}" alt="">
+          </div>
+          <div class="card-body text-dark">
+            <button style='margin-bottom: 8px;' class='btn btn-outline-dark'>Add To Cart</button>
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">${{product.price|floatformat:2}}</p>
+          </div>
+        </div>
 
-<div class="entire-store">
-  <section id="accessories" class="store-sections">
-    <h2>ACCESSORIES</h2>
-    <hr />
-  </section>
+        {% endif %} 
+        {% endfor %}
+      </div>
+    </section>
 
-  <section id="bundles" class="store-sections">
-    <h2>BUNDLES</h2>
-    <hr />
-  </section>
+    <section id="apparel" class="store-sections">
+      <h2>APPAREL</h2>
+      <hr />
+      <div class="row product-list">
+        {% for product in products %}
 
-  <section id="about" class="store-sections">
-    <h2>ABOUT</h2>
-    <hr />
-  </section>
-</div>
+        {% if product.category.name == 'Apparel' %}
+
+        <div class="card border-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">
+            <img src="{{ product.imageURL }}" alt="">
+          </div>
+          <div class="card-body text-dark">
+            <button style='margin-bottom: 8px;' class='btn btn-outline-dark'>Add To Cart</button>
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">${{product.price|floatformat:2}}</p>
+          </div>
+        </div>
+
+        {% endif %} 
+        {% endfor %}
+
+    </section>
+  </div>
+
+  <img
+    id="c"
+    class="sticky"
+    src="{% static 'images/combs.jpg' %}"
+    alt=""
+  />
+  <img
+    id="vertical"
+    class="sticky"
+    src="{% static 'images/vertical.jpg' %}"
+    alt=""
+  />
+  <div class="see-through">
+    <img src="{% static 'images/linework.png' %}" alt="" />
+    <h3>STICKY ORGANIC SURF WAX</h3>
+  </div>
+
+  <div class="entire-store">
+    <section id="accessories" class="store-sections">
+      <h2>ACCESSORIES</h2>
+      <hr />
+    </section>
+
+    <section id="bundles" class="store-sections">
+      <h2>BUNDLES</h2>
+      <hr />
+    </section>
+
+    <section id="about" class="store-sections">
+      <h2>ABOUT</h2>
+      <hr />
+    </section>
+  </div>
+</main>
 
 {% endblock body_block %}

@@ -21,7 +21,7 @@ nav {
   background: linear-gradient(
     90deg,
     floralwhite 0%,
-    rgba(255, 255, 255, 0.151) 25%
+    rgba(255, 255, 255, 0.404) 25%
   );
   /* background-color: white; */
   position: fixed;
@@ -81,6 +81,12 @@ nav {
   width: auto;
 }
 
+#login{
+  font-size: calc(10px + (13 - 10) * ((100vw - 500px) / (1920-500)));
+  font-weight: 600;
+  padding: 3px 8px;
+}
+
 .water-icon {
   margin: 2px 0;
   padding: 0 5px;
@@ -108,7 +114,7 @@ nav {
 }
 
 .temp p {
-  margin: auto 0;
+  margin: auto 7px auto 0;
   color: rgb(0, 0, 0);
   font-size: calc(13px + (18 - 13) * ((100vw - 500px) / (1920-500)));
   cursor: default;
@@ -120,9 +126,27 @@ nav {
   /* background-color: indigo; */
 }
 
+.cart {
+  position: relative;
+}
+
 .cart img {
   height: auto;
   width: calc(30px + (42 - 30) * ((100vw - 500px) / (1920-500)));
+  margin: 2px;
+}
+
+.cart-total {
+  display: block;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background-color: rgb(248, 237, 120);
+  padding: 0 3px;
+  border-radius: 50%;
+  font-size: calc(10px + (13 - 10) * ((100vw - 500px) / (1920-500)));
+  position: absolute;
+  right: -5px;
+  top: -2px;
   margin: 2px;
 }
 
@@ -170,14 +194,52 @@ nav {
     rgb(255, 239, 217) 15%,
     rgb(253, 234, 239) 50%,
     rgb(234, 250, 255) 90%,
-    rgba(183, 226, 242, 1) 100%
+    rgb(183, 226, 242) 100%
   );
 }
 
 .store-sections {
   width: 100%;
-  min-height: 100vh;
-  padding: 90px;
+  min-height: 30vh;
+  padding-top: calc(37px + (90 - 37) * ((100vw - 500px) / (1920-500)));
+  padding-left: calc(37px + (90 - 37) * ((100vw - 500px) / (1920-500)));
+  padding-right: calc(37px + (90 - 37) * ((100vw - 500px) / (1920-500)));
+}
+
+.box-element {
+  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.product-list{
+  display:flex;
+  justify-content: space-around;
+  width:100%;
+  padding: 50px 0;
+  margin: auto;
+}
+
+.card{
+  background: none;
+  border:none;
+}
+
+.card-header{
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.card-header img{
+  width: 100%;
+  filter: drop-shadow(-10px 10px 4px rgba(0, 0, 0, 0.432));
+}
+
+.card-body{
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sticky {
@@ -190,7 +252,35 @@ nav {
 }
 
 .see-through {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.178);
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.see-through h3{
+  color: rgb(248, 241, 226);
+  font-weight: 900;
+  font-family: "Freckle Face", cursive;
+  font-size: calc(20px + (50 - 20) * ((100vw - 500px) / (1920-500)));
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  opacity: 0.7;
+  letter-spacing: 4px;
+  word-spacing: calc(42px + (280 - 42) * ((100vw - 500px) / (1920-500)));;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.see-through img {
+  width: calc(350px + (650 - 350) * ((100vw - 500px) / (1920-500)));
+  height: auto;
+  opacity: 0.8;
 }
 
 #c {
@@ -199,6 +289,68 @@ nav {
 
 #vertical {
   display: none;
+}
+
+.navheight {
+  width: 100%;
+  min-height: calc(41px + (57 - 41) * ((100vw - 500px) / (1920-500)));
+}
+
+.cart-page {
+  width: 100%;
+  height: 100vh;
+  padding: 30px 50px;
+}
+
+.cart-row {
+  display: flex;
+  align-items: stretch;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.row-image {
+  width: 100px;
+}
+
+.quanity {
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.chg-quantity {
+  width: 12px;
+  cursor: pointer;
+  display: block;
+  margin: 5px 0 0 14px;
+  transform: translateY(-5px);
+  transition: 0.1s;
+}
+
+.chg-quantity:hover {
+  opacity: 0.6;
+}
+
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+
+.hidden{
+  display: none!important;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100vh; /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+  height: 100vh; /* .push must be the same height as .footer */
 }
 
 footer {
@@ -222,7 +374,11 @@ footer {
     overflow-x: hidden;
   }
 
-  .nav-links {
+  nav{
+    background-color: floralwhite;
+  }
+
+  .nav-links{
     position: absolute;
     right: 0px;
     height: 100vh;
@@ -334,3 +490,5 @@ footer {
     transform: rotate(-4deg);
   }
 }
+
+

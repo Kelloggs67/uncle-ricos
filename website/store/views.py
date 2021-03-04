@@ -3,6 +3,7 @@ from django.http import HttpResponse
 import requests
 from ipstack import GeoLookup
 from datetime import datetime
+from .models import *
 # Create your views here.
 
 def main():
@@ -77,7 +78,8 @@ def main():
 def scroll(request):
 
     nav = main()
-    context = {nav[0]: nav[1]}
+    products = Product.objects.all()
+    context = {nav[0]: nav[1], 'products': products}
 
     return render(request, 'store/scroll.html', context)
 
@@ -85,15 +87,32 @@ def scroll(request):
 
 def cart(request):
 
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items': 0}
+
     nav = main()
-    context = {nav[0]: nav[1]}
+    context = {nav[0]: nav[1], 'items': items, 'order': order}
 
     return render(request, 'store/cart.html', context)
 
 
 def checkout(request):
 
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items': 0}
+
     nav = main()
-    context = {nav[0]: nav[1]}
+    context = {nav[0]: nav[1], 'items': items, 'order': order}
+
 
     return render(request, 'store/checkout.html', context)

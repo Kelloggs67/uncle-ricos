@@ -16,6 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Uncle Rico's Surf Wax</title>
     <link
       rel="shortcut icon"
@@ -25,14 +29,14 @@
   </head>
   <style>
     footer {
-      background-image: url("{% static "images/store/footer.jpg" %}");
+      background-image: url("{% static "images/footer.jpg" %}");
     }
   </style>
   <body>
     <nav>
       <div class="logo">
         <a href="{% url 'scroll' %}"
-          ><img src="{% static 'images/navbar/brand.png' %}" alt="Uncle Rico's"
+          ><img src="{% static 'images/brand.png' %}" alt="Uncle Rico's"
         /></a>
       </div>
 
@@ -40,13 +44,13 @@
         <li><a class="underline" href="\#the-wax">Surf Wax</a></li>
         <li><a class="underline" href="\#apparel">Apparel</a></li>
         <li><a class="underline" href="\#accessories">Accessories</a></li>
-        <li><a class="underline" href="\#bundles">Bundles</a></li>
         <li><a class="underline" href="\#about">About</a></li>
       </ul>
 
       <div class="right-nav">
+        
         <div class="water-icon">
-          <img src="{% static 'images/navbar/wave.png' %}" alt="" />
+          <img src="{% static 'images/wave.png' %}" alt="" />
         </div>
         <div class="water-temp">
           <p>{{ marine_weather.water }}</p>
@@ -59,21 +63,25 @@
           <p>{{marine_weather.temp}}</p>
         </div>
 
+        <a id='login' class="btn btn-outline-dark" href="">Login</a>
+
         <div class="cart">
           <a href="{% url 'cart' %}"
             ><img
               class="hover-ani"
-              src="{% static 'images/navbar/car.png' %}"
+              src="{% static 'images/car.png' %}"
               alt=""
           /></a>
+          <p class="cart-total">2</p>
         </div>
+        
 
         <div class="burger">
-          <img src="{% static 'images/navbar/waveburger.png' %}" alt="" />
+          <img src="{% static 'images/waveburger.png' %}" alt="" />
         </div>
 
         <div class="cancel">
-          <img src="{% static 'images/navbar/x.png' %}" alt="" />
+          <img src="{% static 'images/x.png' %}" alt="" />
         </div>
       </div>
     </nav>
@@ -85,16 +93,6 @@
     </div>
     <footer>
       <div class="credits">
-        <div>
-          Icons made by
-          <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx"
-            >xnimrodx</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          >
-        </div>
         <div>
           Icons made by
           <a
