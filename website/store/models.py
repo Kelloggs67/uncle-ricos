@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.fields import CharField
+from django.db.models.fields.related import ForeignKey
 # Create your models here.
 
 class Customer(models.Model):
@@ -65,6 +67,29 @@ class OrderItem(models.Model):
     @property
     def get_total(self):
         total = self.product.price * self.quantity
+        return total
+
+class WaxBundle(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    amount = models.IntegerField(default=0, null=True, blank=True)
+    modified_price = models.FloatField()
+    image = models.ImageField(null=True, blank=True)
+
+
+    @property
+    def get_bundle_total(self):
+        bundleitems = self.waxbundleitem_set.all()
+        total = sum([item.get_total for item in bundleitems])
+        return total
+
+class WaxBundleItem(models.Model):
+    bundle = models.ForeignKey(WaxBundle, on_delete=models.SET_NULL, blank=True, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+
+    @property
+    def get_total(self):
+        total = self.bundle.modified_price * self.quantity
         return total
 
 class ShippingAddress(models.Model):

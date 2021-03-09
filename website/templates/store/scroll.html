@@ -51,7 +51,7 @@
             <img src="{{ product.imageURL }}" alt="">
           </div>
           <div class="card-body text-dark">
-            <button style='margin-bottom: 8px;' class='btn btn-outline-dark'>Add To Cart</button>
+            <button data-product="{{product.id}}" data-action="add" style='margin-bottom: 8px;' class='btn btn-outline-dark update-cart'>Add To Cart</button>
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">${{product.price|floatformat:2}}</p>
           </div>
@@ -75,7 +75,7 @@
             <img src="{{ product.imageURL }}" alt="">
           </div>
           <div class="card-body text-dark">
-            <button style='margin-bottom: 8px;' class='btn btn-outline-dark'>Add To Cart</button>
+            <button data-product="{{product.id}}" data-action="add" style='margin-bottom: 8px;' class='btn btn-outline-dark update-cart'>Add To Cart</button>
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">${{product.price|floatformat:2}}</p>
           </div>
@@ -107,11 +107,6 @@
   <div class="entire-store">
     <section id="accessories" class="store-sections">
       <h2>ACCESSORIES</h2>
-      <hr />
-    </section>
-
-    <section id="bundles" class="store-sections">
-      <h2>BUNDLES</h2>
       <hr />
     </section>
 
